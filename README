@@ -1,3 +1,9 @@
+Did this, to demonstrate problem with loading native libraries with sbt.
+If you comment out System.gc(); from HelloMain and repeatedly run the app from SBT console, you will get  -
+"java.lang.UnsatisfiedLinkError: Native Library /home/alvar/devel/jni/c/hello.so already loaded in another classloader" error.
+However, when you compile with System.gc(); commented in, everything works fine.
+
+
 javac Hello.java
 javah -classpath . -o ../c/Hello.h Hello
 rm Hello.class
