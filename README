@@ -1,0 +1,5 @@
+javac Hello.java
+javah -classpath . -o ../c/Hello.h Hello
+rm Hello.class
+cc -c -fPIC -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include/ -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include/linux hello.c -o hello.o
+cc -shared -o hello.so hello.o
